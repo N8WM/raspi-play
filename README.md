@@ -1,6 +1,10 @@
 # raspi-play
 Build a low-profile AirPlay audio receiver for cheap (powered by Raspberry Pi)! This is a cheap and easy project to connect an old speaker system to your Apple devices, such as an Apple HomePod.
 
+![front of device (audio and SD ports)](./IMG_8580.jpeg?raw=true)
+![back of device (power and data ports)](./IMG_8579.jpeg?raw=true)
+
+
 ## Materials
 - Raspberry Pi Zero 2 W - [Amazon](https://a.co/d/fDa0be4) | [Adafruit](https://www.adafruit.com/product/5291)
 - I2S PCM5102A DAC Decoder - [Amazon](https://a.co/d/4PBEBoA) | [Ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=QCCAN+Interface+I2S+PCM5102A+DAC+Decoder+GY-PCM5102+I2S+Player+Module+pHAT+Format+Board+Digital+PCM5102+Audio+Board+for+Raspberry+Pi&_sacat=0)
@@ -16,3 +20,6 @@ Build a low-profile AirPlay audio receiver for cheap (powered by Raspberry Pi)! 
 
 ## Instructions
 [coming soon]
+
+## Resources
+- Code for AirPlay receiver: [Shairport Sync](https://github.com/mikebrady/shairport-sync)
