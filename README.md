@@ -13,10 +13,11 @@ Build a low-profile AirPlay audio receiver for cheap (powered by Raspberry Pi)! 
 ## Tools
 - 3D Printer
 - Soldering Iron
-- Solder (preferrably rosin core, lead free)
+- Solder (preferably rosin core, lead-free)
 - Jumper wires (if your DAC decoder does not come with them, mine did)
 - Third hand tool/PCB holder (optional but recommended)
 - Hot glue gun
+- Metal file (or something else to shave down HDMI overhang)
 
 ## Instructions
 [coming soon]
