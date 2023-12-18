@@ -23,4 +23,4 @@ Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a c
 [coming soon]
 
 ## Resources
-- Code for AirPlay receiver: [Shairport Sync](https://github.com/mikebrady/shairport-sync)
+- Code to run AirPlay server: [Shairport Sync](https://github.com/mikebrady/shairport-sync)
