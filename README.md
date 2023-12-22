@@ -1,8 +1,8 @@
 # raspi-play
 Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.
 
-![front of device (audio and SD ports)](./IMG_8580.jpeg?raw=true)
-![back of device (power and data ports)](./IMG_8579.jpeg?raw=true)
+![front of device (audio and SD ports)](./images/IMG_8580.jpeg?raw=true)
+![back of device (power and data ports)](./images/IMG_8579.jpeg?raw=true)
 
 
 ## Materials
