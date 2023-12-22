@@ -37,6 +37,7 @@ LCK/LRCK    > PIN 35    (GPIO19)
 GND         > PIN 6     (GND) Ground
 VIN         > PIN 2     (5V)
 ```
+![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 6. 
 [to be continued]
 
