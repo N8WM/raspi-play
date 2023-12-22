@@ -23,7 +23,7 @@ Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a c
 ## Instructions
 1. Gather/print the parts specified.
 1. We will start by soldering jumper wires to the DAC decoder. Take a look at the five connectors on the short edge of the board. We will be soldering our jumper wires to four of them -- `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN`. Don't solder any wire to `SCK`, we will instead apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK` (NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads near them).
-![DAC connections](./images/IMG_XXXX.jpeg?raw=true)
+![DAC connections](./images/IMG_8656.jpeg?raw=true)
 2. Before we connect these to the Raspberry Pi, we need to prepare the Pi to fit into the 3D-printed case. Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi. Use the metal file to grind away the metal on the HDMI port that overhangs the edge of the PCB board.
 ![Pi preparation](./images/IMG_XXXX.jpeg?raw=true)
 5. Now we can solder the jumper wires from the DAC to the Pi. When you solder the jumper wires, make sure the wires come out of the front component side of the Pi, otherwise the case will not fit. Here is a connection guide:
