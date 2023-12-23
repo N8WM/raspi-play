@@ -51,3 +51,4 @@ VIN         > PIN 2     (5V)
 
 ## Resources
 - Code to run AirPlay server: [Shairport Sync](https://github.com/mikebrady/shairport-sync)
+- DAC jumper wire connections: [Kamran Sethi](https://raspberrypi.stackexchange.com/a/76264)
