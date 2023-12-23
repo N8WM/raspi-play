@@ -47,6 +47,30 @@ VIN         > PIN 2     (5V)
 ![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 
 6. 
+`bootfs/wpa_supplicant.conf`
+```conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=<YOUR TWO LETTER COUNTRY CODE>
+
+network={
+    ssid="<YOUR 1ST NETWORK NAME>"
+    psk="<YOUR NETWORK PASSWORD>"
+    key_mgmt=WPA-PSK
+    id_str="<IDENTIFIER>"
+    priority=1
+}
+
+network={
+    ssid="<YOUR 2ND NETWORK NAME>"
+    psk="<YOUR NETWORK PASSWORD>"
+    key_mgmt=WPA-PSK
+    id_str="<IDENTIFIER>"
+    priority=2
+}
+
+...
+```
 [to be continued]
 
 ## Resources
