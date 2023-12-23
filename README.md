@@ -75,6 +75,10 @@ network={
 ```sh
 touch ssh
 ```
+Verify that the Pi is connected to your network with the following command, assuming you are using the default hostname:
+```sh
+ping raspberrypi.local
+```
 [to be continued]
 
 ## Resources
