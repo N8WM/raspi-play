@@ -51,13 +51,13 @@ VIN         > PIN 2     (5V)
 ```conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
-country=<YOUR TWO LETTER COUNTRY CODE>
+country=<YOUR TWO LETTER COUNTRY CODE i.e. US>
 
 network={
     ssid="<YOUR 1ST NETWORK NAME>"
     psk="<YOUR NETWORK PASSWORD>"
     key_mgmt=WPA-PSK
-    id_str="<IDENTIFIER>"
+    id_str="<YOUR CUSTOM LABEL>"
     priority=1
 }
 
@@ -65,11 +65,15 @@ network={
     ssid="<YOUR 2ND NETWORK NAME>"
     psk="<YOUR NETWORK PASSWORD>"
     key_mgmt=WPA-PSK
-    id_str="<IDENTIFIER>"
+    id_str="<YOUR CUSTOM LABEL>"
     priority=2
 }
 
 ...
+```
+
+```sh
+touch ssh
 ```
 [to be continued]
 
