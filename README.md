@@ -91,8 +91,14 @@ sudo apt-get update
 sudo apt-get upgrade
 curl -sSL get.pimoroni.com/phatdac | bash
 sudo apt-get install git
-sudo apt-get install apt-file
+sudo apt-get install autoconf
 ```
+
+Follow the instructions to install the following:
+- [NQPTP](https://github.com/mikebrady/nqptp)
+- [Shairport Sync](https://github.com/mikebrady/shairport-sync/blob/master/BUILD.md)
+
+Note: Whenever a command starts with a `#` symbol instead of a `$`, it means to run the command with root privileges, i.e. starting with `sudo ...`.
 
 [to be continued]
 
