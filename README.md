@@ -90,6 +90,7 @@ Next, run these commands one at a time:
 sudo apt-get update
 sudo apt-get upgrade
 curl -sSL get.pimoroni.com/phatdac | bash
+sudo apt-get install git
 ```
 
 [to be continued]
