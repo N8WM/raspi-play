@@ -79,6 +79,11 @@ Verify that the Pi is connected to your network with the following command, assu
 ```sh
 ping raspberrypi.local
 ```
+To open the Pi's terminal, you can SSH into it. The following command assumes you are using the default credentials:
+```sh
+ssh pi@raspberrypi.local
+```
+The first time you SSH into the Pi, it will ask you if you want to continue to connect. Type `yes`. It will then prompt you for a password. The default password is `raspberry`.
 [to be continued]
 
 ## Resources
