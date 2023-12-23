@@ -84,6 +84,14 @@ To open the Pi's terminal, you can SSH into it. The following command assumes yo
 ssh pi@raspberrypi.local
 ```
 The first time you SSH into the Pi, it will ask you if you want to continue to connect. Type `yes`. It will then prompt you for a password. The default password is `raspberry`.
+
+Next, run these commands one at a time:
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+curl -sSL get.pimoroni.com/phatdac | bash
+```
+
 [to be continued]
 
 ## Resources
