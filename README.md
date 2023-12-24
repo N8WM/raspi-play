@@ -60,6 +60,10 @@ VIN         > PIN 2     (5V)
 ```
 ![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 
+This is how mine looked after this step:
+
+![Pi connections](./images/IMG_8662/jpeg?raw=true)
+
 ### 5. Flash the SD card
 
 
