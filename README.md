@@ -11,6 +11,7 @@ This tutorial assumes you have a Unix-like terminal for setting up the Raspberry
 - Raspberry Pi Zero 2 W - [Amazon](https://a.co/d/fDa0be4) | [Adafruit](https://www.adafruit.com/product/5291)
 - I2S PCM5102A DAC Decoder - [Amazon](https://a.co/d/4PBEBoA) | [Ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=QCCAN+Interface+I2S+PCM5102A+DAC+Decoder+GY-PCM5102+I2S+Player+Module+pHAT+Format+Board+Digital+PCM5102+Audio+Board+for+Raspberry+Pi&_sacat=0)
 - MicroSD Card (8GB+) - [Amazon](https://a.co/d/fdQJwdG) | [Western Digital](www.westerndigital.com/products/memory-cards/sandisk-ultra-uhs-i-microsd)
+- USB or SD card adapter for the MicroSD card if your computer does not have a MicroSD slot (your MicroSD card may come with one, read its description) - Easily found on Amazon
 - 3D printed case (use the case and cover STL files in the repository [coming soon])
 
 ## Tools
@@ -24,7 +25,7 @@ This tutorial assumes you have a Unix-like terminal for setting up the Raspberry
 
 ## Instructions
 
-### 1. Gather/print the parts specified
+### 1. Gather the parts specified
 
 ### 2. Prepare the Pi to fit into the 3D-printed case
 
@@ -66,7 +67,17 @@ This is how mine looked after this step:
 
 ### 5. Flash the SD card
 
+- On your computer, plug the MicroSD card into your MicroSD reader slot or adapter
+- Download the Raspberry Pi imager from the [Raspberry Pi software page](https://www.raspberrypi.com/software/)
+- When launching the imager for the first time, grant the necessary permissions
+- For the device, choose `RASPBERRY PI ZERO 2 W`
+- The operating system should be `RASPBERRY PI OS (LEGACY, 64-BIT) LITE`
 
+![Raspberry Pi flash software](./images/IMG_8678.jpeg?raw=true)
+
+- Select your MicroSD card or slot name from the Storage options, mine was called "APPLE SDXC READER MEDIA"
+- Click "NEXT"
+- If it asks you if you want to configure any settings before it flashes the MicroSD card, I recommend setting a custom host name, username and password
 
 ### 6. Configure the network settings
 
