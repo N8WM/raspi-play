@@ -4,6 +4,8 @@ Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a c
 ![front of device (audio and SD ports)](./images/IMG_8580.jpeg?raw=true)
 ![back of device (power and data ports)](./images/IMG_8579.jpeg?raw=true)
 
+### Note
+This tutorial assumes you have a Unix-like terminal for setting up the Raspberry Pi
 
 ## Materials
 - Raspberry Pi Zero 2 W - [Amazon](https://a.co/d/fDa0be4) | [Adafruit](https://www.adafruit.com/product/5291)
@@ -21,18 +23,31 @@ Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a c
 - Metal file (or something else to shave down the HDMI port's overhang)
 
 ## Instructions
-1. Gather/print the parts specified.
-1. We will start by soldering jumper wires to the DAC decoder. Take a look at the five connectors on the short edge of the board. We will be soldering our jumper wires to four of them -- `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN`. Don't solder any wire to `SCK`, we will instead apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK` (NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads near them).
 
-![DAC connections](./images/IMG_8656.jpeg?raw=true)
+### 1. Gather/print the parts specified
 
-3. Before we connect these to the Raspberry Pi, we need to prepare the Pi to fit into the 3D-printed case. Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi. Use the metal file to grind away the metal on the HDMI port that overhangs the edge of the PCB board.
+### 2. Prepare the Pi to fit into the 3D-printed case
+
+- Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi
+- File away the metal on the HDMI port that overhangs the edge of the PCB board
 
 ![Pi preparation1](./images/IMG_8657.jpeg?raw=true)
 ![Pi preparation2](./images/IMG_8658.jpeg?raw=true)
 
-5. Now we can solder the jumper wires from the DAC to the Pi. When you solder the jumper wires, make sure the wires come out of the front component side of the Pi, otherwise the case will not fit. Here is a connection guide:
+### 3. Solder jumper wires to the DAC decoder
 
+- On the short side of the board, the pads `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN` should have jumper wires soldered to them
+    - Don't solder any wire to `SCK`
+- Apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK`
+    - NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads next to them
+
+![DAC connections](./images/IMG_8656.jpeg?raw=true)
+
+### 4. Solder the jumper wires from the DAC to the Pi
+
+Make sure the wires go into the front component side of the Pi, otherwise the case will not fit
+
+**Connection guide**
 ```
 DAC BOARD   > Raspberry Pi Zero 2 W connector
 -----------------------------------------------
@@ -43,38 +58,55 @@ LCK/LRCK    > PIN 35    (GPIO19)
 GND         > PIN 6     (GND) Ground
 VIN         > PIN 2     (5V)
 ```
-
 ![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 
-6. 
-`bootfs/wpa_supplicant.conf`
-```conf
+### 5. Flash the SD card
+
+
+
+### 6. Configure the network settings
+
+- Navigate to the root directory of the SD card's boot partition, `bootfs`
+- Create a new file there called `wpa_supplicant.conf` using your preferred text editor
+- Open the file and paste in the template below
+    - Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`)
+        - `country`: the two-letter country code (i.e. `country=US`, `country=AU`, etc.)
+        - `ssid`: the case-sensitive name of the WiFi network (surrounded by double quotes)
+        - `psk`: the password (surrounded by double quotes
+        - `id_str`: a unique label to distinguish from other networks, could be anything (surrounded by double quotes)
+        - `priority`: a unique number to determine what order WiFi networks should connect in (integer, no quotes)
+    - This configuration is for two WiFi networks, but more or less can be used by adding or removing `network={...}` listings
+
+```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
-country=<YOUR TWO LETTER COUNTRY CODE i.e. US>
+country=<YOUR COUNTRY CODE>
 
 network={
     ssid="<YOUR 1ST NETWORK NAME>"
-    psk="<YOUR NETWORK PASSWORD>"
+    psk="<YOUR 1ST NETWORK PASSWORD>"
     key_mgmt=WPA-PSK
-    id_str="<YOUR CUSTOM LABEL>"
-    priority=1
+    id_str="<YOUR 1ST NETWORK ID>"
+    priority=<YOUR 1ST NETWORK PRIORITY>
 }
 
 network={
     ssid="<YOUR 2ND NETWORK NAME>"
-    psk="<YOUR NETWORK PASSWORD>"
+    psk="<YOUR 2ND NETWORK PASSWORD>"
     key_mgmt=WPA-PSK
-    id_str="<YOUR CUSTOM LABEL>"
-    priority=2
+    id_str="<YOUR 2ND NETWORK ID>"
+    priority=<YOUR 2ND NETWORK PRIORITY>
 }
-
-...
 ```
+
+- Save and close `wpa_supplicant.conf`
+- Create another file called `ssh` with no file extension
+    - In a Unix-like terminal, you can do this with the following command
 
 ```sh
 touch ssh
 ```
+
 Verify that the Pi is connected to your network with the following command, assuming you are using the default hostname:
 ```sh
 ping raspberrypi.local
