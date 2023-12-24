@@ -29,7 +29,7 @@ This tutorial assumes you have a Unix-like terminal for setting up the Raspberry
 ### 2. Prepare the Pi to fit into the 3D-printed case
 
 - Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi
-- File away the metal on the HDMI port that overhangs the edge of the PCB board
+- File away the metal on the HDMI port that overhangs the edge of the PCB board (notice in the second image how the HDMI port cannot be seen from underneath)
 
 ![Pi preparation1](./images/IMG_8657.jpeg?raw=true)
 ![Pi preparation2](./images/IMG_8658.jpeg?raw=true)
