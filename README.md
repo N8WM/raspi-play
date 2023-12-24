@@ -60,6 +60,7 @@ GND         > PIN 6     (GND) Ground
 VIN         > PIN 2     (5V)
 ```
 **GPIO labels**
+
 ![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 
 This is how mine looked after this step:
