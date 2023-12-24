@@ -1,5 +1,5 @@
 # raspi-play
-Build a low-profile AirPlay audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.
+Build a low-profile AirPlay 2 audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.
 
 ![front of device (audio and SD ports)](./images/IMG_8580.jpeg?raw=true)
 ![back of device (power and data ports)](./images/IMG_8579.jpeg?raw=true)
@@ -29,24 +29,24 @@ This tutorial assumes you have a Unix-like terminal for setting up the Raspberry
 
 ### 2. Prepare the Pi to fit into the 3D-printed case
 
-- Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi
-- File away the metal on the HDMI port that overhangs the edge of the PCB board (notice in the second image how the HDMI port cannot be seen from underneath)
+Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi.
+
+File away the metal on the HDMI port that overhangs the edge of the PCB board (notice in the second image how the HDMI port cannot be seen from underneath).
 
 ![Pi preparation1](./images/IMG_8657.jpeg?raw=true)
 ![Pi preparation2](./images/IMG_8658.jpeg?raw=true)
 
 ### 3. Solder jumper wires to the DAC decoder
 
-- On the short side of the board, the pads `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN` should have jumper wires soldered to them
-    - Don't solder any wire to `SCK`
-- Apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK`
-    - NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads next to them
+On the short side of the board, the pads `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN` need to have jumper wires soldered to them. Do NOT solder a wire to `SCK`.
+
+Apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK`. **NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads next to them.** (See image below)
 
 ![DAC connections](./images/IMG_8656.jpeg?raw=true)
 
 ### 4. Solder the jumper wires from the DAC to the Pi
 
-Make sure the wires go into the front component side of the Pi, otherwise the case will not fit
+Make sure the wires go into the front component side of the Pi, otherwise the case will not fit.
 
 **Connection guide**
 ```
@@ -67,30 +67,27 @@ This is how mine looked after this step:
 
 ### 5. Flash the SD card
 
-- On your computer, plug the MicroSD card into your MicroSD reader slot or adapter
-- Download the Raspberry Pi imager from the [Raspberry Pi software page](https://www.raspberrypi.com/software/)
-- When launching the imager for the first time, grant the necessary permissions
-- For the device, choose `RASPBERRY PI ZERO 2 W`
-- The operating system should be `RASPBERRY PI OS (LEGACY, 64-BIT) LITE`
+On your computer, plug the MicroSD card into your MicroSD reader slot or adapter.
+
+Download the Raspberry Pi imager from the [Raspberry Pi software page](https://www.raspberrypi.com/software/).
+
+Launch the application and grant the necessary permissions. You should see a screen for selecting a device, an operating system, and storage.
+
+For the device, choose `RASPBERRY PI ZERO 2 W`. The operating system should be `RASPBERRY PI OS (LEGACY, 64-BIT) LITE`.
 
 ![Raspberry Pi flash software](./images/IMG_8678.jpeg?raw=true)
 
-- Select your MicroSD card or slot name from the Storage options, mine was called "APPLE SDXC READER MEDIA"
-- Click "NEXT"
-- If it asks you if you want to configure any settings before it flashes the MicroSD card, I recommend setting a custom host name, username and password
+Select your MicroSD card or slot name from the Storage options, mine was called "APPLE SDXC READER MEDIA".
+
+Click "NEXT". If it asks you if you want to configure any settings before it flashes the MicroSD card, I recommend setting a custom hostname, username and password.
+
+*The hostname is what will show up by default when connecting to the device over AirPlay, I named mine "AirPlayRBP", but if you leave it as default, it will be called "raspberrypi"*
 
 ### 6. Configure the network settings
 
-- Navigate to the root directory of the SD card's boot partition, `bootfs`
-- Create a new file there called `wpa_supplicant.conf` using your preferred text editor
-- Open the file and paste in the template below
-    - Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`)
-        - `country`: the two-letter country code (i.e. `country=US`, `country=AU`, etc.)
-        - `ssid`: the case-sensitive name of the WiFi network (surrounded by double quotes)
-        - `psk`: the password (surrounded by double quotes
-        - `id_str`: a unique label to distinguish from other networks, could be anything (surrounded by double quotes)
-        - `priority`: a unique number to determine what order WiFi networks should connect in (integer, no quotes)
-    - This configuration is for two WiFi networks, but more or less can be used by adding or removing `network={...}` listings
+Navigate to the root directory of the SD card's boot partition, `bootfs`.
+
+Create a new file there called `wpa_supplicant.conf` using your preferred text editor. Open the file and paste in the template below:
 
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -114,13 +111,26 @@ network={
 }
 ```
 
-- Save and close `wpa_supplicant.conf`
-- Create another file called `ssh` with no file extension
-    - In a Unix-like terminal, you can do this with the following command
+Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`)
+
+- `country`: the two-letter country code (i.e. `country=US`, `country=AU`, etc.)
+- `ssid`: the case-sensitive name of the WiFi network (surrounded by double quotes)
+- `psk`: the password (surrounded by double quotes
+- `id_str`: a unique label to distinguish from other networks, could be anything (surrounded by double quotes)
+- `priority`: a unique number to determine what order WiFi networks should connect in (integer, no quotes)
+
+This configuration is for two WiFi networks, but a different number of networks can be configured by adding or removing `network={...}` listings
+
+Save and close `wpa_supplicant.conf`
+
+Create another file called `ssh` with no file extension
+
+In a Unix-like terminal, you can do this with the following command
 
 ```sh
 touch ssh
 ```
+
 
 Verify that the Pi is connected to your network with the following command, assuming you are using the default hostname:
 ```sh
