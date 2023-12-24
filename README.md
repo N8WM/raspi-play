@@ -46,7 +46,7 @@ Apply a small bead of solder to jump the two little pads on the front side of th
 
 ### 4. Solder the jumper wires from the DAC to the Pi
 
-Make sure the wires go into the front component side of the Pi, otherwise the case will not fit.
+Make sure the wires go into the front component side of the Pi, otherwise the case will not fit properly. Please use the following guide:
 
 **Connection guide**
 ```
