@@ -75,15 +75,37 @@ Download the Raspberry Pi imager from the [Raspberry Pi software page](https://w
 
 Launch the application and grant the necessary permissions. You should see a screen for selecting a device, an operating system, and storage.
 
-For the device, choose `RASPBERRY PI ZERO 2 W`. The operating system should be `RASPBERRY PI OS (LEGACY, 64-BIT) LITE`.
-
-![Raspberry Pi flash software](./images/IMG_8678.jpeg?raw=true)
+For the device, choose `RASPBERRY PI ZERO 2 W`. The operating system should be `RASPBERRY PI OS (LEGACY, 64-BIT) LITE` (this may be located in the `Raspberry Pi OS (other)` category).
 
 Select your MicroSD card or slot name from the Storage options, mine was called "APPLE SDXC READER MEDIA".
 
-Click "NEXT". If it asks you if you want to configure any settings before it flashes the MicroSD card, I recommend setting a custom hostname, username and password.
+![Raspberry Pi flash software](./images/IMG_8674.png?raw=true)
 
-*The hostname is what will show up by default when connecting to the device over AirPlay, I named mine "AirPlayRBP", but if you leave it as default, it will be called "raspberrypi"*
+Click `NEXT`. If it asks you if you would like to apply OS customization settings before it flashes the MicroSD card, I recommend setting a custom hostname, username, and password. You can do this by clicking `EDIT SETTINGS`.
+
+![OSC edit settings](./images/IMG_8675.png?raw=true)
+
+Go to the `GENERAL` tab. The hostname is what will show up on your Apple device when connecting to the AirPlay server, I named mine "AirPlayRBP", but if you leave it as default, it will be called "raspberrypi".
+
+![OS customization general](./images/IMG_8676.png?raw=true)
+
+Go to the `SERVICES` tab and tick the `Enable SSH` checkbox.
+
+![OS customization services](./images/IMG_8677.png?raw=true)
+
+Click `SAVE`. Now when it asks if you would like to apply OS customization settings, click `YES`.
+
+![OSC yes](./images/IMG_8678.png?raw=true)
+
+If it asks if you would like to prefill the WiFi password from the system keychain, click `No`. We will set this up manually.
+
+![WiFi keychain](./images/IMG_8679.png?raw=true)
+
+When it asks if you still want to continue, click `YES`. It may take a few minutes to flash the MicroSD, and you may be prompted to authenticate your computer accessing the MicroSD card.
+
+When the program is finished flashing the card, you can close it.
+
+Unplug the MicroSD card from your computer and plug it back in.
 
 ### 6. Configure the network settings
 
