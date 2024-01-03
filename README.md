@@ -1,10 +1,11 @@
 <div align="center"><h1>raspi-play</h1></div>
 <div align="center">Build a low-profile <b>AirPlay 2</b> audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.</div><br/>
 
-![front of device (audio and SD ports)](./images/IMG_8580.jpeg?raw=true)
-![back of device (power and data ports)](./images/IMG_8579.jpeg?raw=true)
+<div align="center">
+  <img src="./images/IMG_8580.jpeg?raw=true" alt="front of device (audio and SD ports)" width="47%" />
+  <img src="./images/IMG_8579.jpeg?raw=true" alt="back of device (power and data ports)" width="47%" />
+</div><br/>
 
-<div align="center"><h2>Note</h2></div>
 <div align="center"><i>This tutorial assumes you have a Unix-like terminal for setting up the Raspberry Pi</i></div>
 
 <div align="center"><h2>Materials</h2></div>
@@ -29,7 +30,9 @@
 
 <br/><br/>
 
-<div align="center"><h3>- 1 -<br/>Gather the parts specified</h3></div
+<div align="center"><h3>- 1 -<br/>Gather the parts and tools specified</h3></div>
+
+When 3D printing the case, I recommend a small layer height as opposed to a larger one for finer detail on port cutouts. I also recommend enabling supports.
 
 <br/><br/>
 
@@ -39,8 +42,12 @@ Discard the black piece of plastic covering the ribbon cable connector on the sh
 
 File away the metal on the HDMI port that overhangs the edge of the PCB board (notice in the second image how the HDMI port cannot be seen from underneath).
 
-![Pi preparation1](./images/IMG_8657.jpeg?raw=true)
-![Pi preparation2](./images/IMG_8658.jpeg?raw=true)
+<br/>
+
+<div align="center">
+  <img src="./images/IMG_8657.jpeg?raw=true" alt="Pi preparation1" width="47%" />
+  <img src="./images/IMG_8658.jpeg?raw=true" alt="Pi preparation2" width="47%" />
+</div><br/>
 
 <br/><br/>
 
@@ -48,9 +55,13 @@ File away the metal on the HDMI port that overhangs the edge of the PCB board (n
 
 On the short side of the board, the pads `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN` need to have jumper wires soldered to them. Do NOT solder a wire to `SCK`.
 
-Apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK`. **NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads next to them.** (See image below)
+Apply a small bead of solder to jump the two little pads on the front side of the board, between `SCK` and `BCK`. **NOT THE `SCK` AND `BCK` PADS THEMSELVES, but the tiny pads next to them.**
 
-![DAC connections](./images/IMG_8656.jpeg?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8656.jpeg?raw=true" alt="DAC connections" width="500" />
+</div><br/>
 
 <br/><br/>
 
@@ -58,26 +69,33 @@ Apply a small bead of solder to jump the two little pads on the front side of th
 
 Make sure the wires go into the front component side of the Pi, otherwise the Pi will not fit into the case properly. Please use the following guide:
 
-<div align="center"><h4>Connection guide</h4></div>
-
-```
-DAC BOARD   > Raspberry Pi Zero 2 W connector
+<table align="center">
+    <head><tr>
+        <th>Connection Guide</th>
+        <th>GPIO Labels</th>
+    </tr></thead>
+    <tbody><tr>
+        <td>
+            <pre>DAC BOARD   &gt; Raspberry Pi Zero 2 W connector
 -----------------------------------------------
-SCK         > Not wired (Internally generated)
-BCK         > PIN 12    (GPIO18)
-DIN         > PIN 40    (GPIO21)
-LCK/LRCK    > PIN 35    (GPIO19)
-GND         > PIN 6     (GND) Ground
-VIN         > PIN 2     (5V)
-```
+SCK         &gt; Not wired (Internally generated)
+BCK         &gt; PIN 12    (GPIO18)
+DIN         &gt; PIN 40    (GPIO21)
+LCK/LRCK    &gt; PIN 35    (GPIO19)
+GND         &gt; PIN 6     (GND) Ground
+VIN         &gt; PIN 2     (5V)</pre>
+        </td>
+        <td>
+            <img src="./images/IMG_8659.jpeg?raw=true" alt="GPIO guide" width="400" />
+        </td>
+    </tr></tbody>
+</table>
 
-<div align="center"><h4>GPIO labels</h4></div>
+<div align="center"><h4>How mine looked after this step</h4></div>
 
-![GPIO guide](./images/IMG_8659.jpeg?raw=true)
-
-This is how mine looked after this step:
-
-![Pi connections](./images/IMG_8662.jpeg?raw=true)
+<div align="center">
+    <img src="./images/IMG_8662.jpeg?raw=true" alt="Pi connections" width="500" />
+</div><br/>
 
 <br/><br/>
 
@@ -95,27 +113,51 @@ For the device, choose `RASPBERRY PI ZERO 2 W`. The operating system should be `
 
 Select your MicroSD card or slot name from the Storage options, mine was called "APPLE SDXC READER MEDIA".
 
-![Raspberry Pi flash software](./images/IMG_8674.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8674.png?raw=true" alt="Raspberry Pi flash software" width="500" />
+</div><br/>
 
 Click `NEXT`. If it asks you if you would like to apply OS customization settings before it flashes the MicroSD card, I recommend setting a custom hostname, username, and password. You can do this by clicking `EDIT SETTINGS`.
 
-![OSC edit settings](./images/IMG_8675.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8675.png?raw=true" alt="OSC edit settings" width="500" />
+</div><br/>
 
 Go to the `GENERAL` tab. The hostname is what will show up on your Apple device when connecting to the AirPlay server, I named mine "AirPlayRBP", but if you leave it as default, it will be called "raspberrypi".
 
-![OS customization general](./images/IMG_8676.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8676.png?raw=true" alt="OS customization general" width="500" />
+</div><br/>
 
 Go to the `SERVICES` tab and tick the `Enable SSH` checkbox.
 
-![OS customization services](./images/IMG_8677.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8677.png?raw=true" alt="OS customization services" width="500" />
+</div><br/>
 
 Click `SAVE`. Now when it asks if you would like to apply OS customization settings, click `YES`.
 
-![OSC yes](./images/IMG_8678.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8678.png?raw=true" alt="OSC yes" width="500" />
+</div><br/>
 
 If it asks if you would like to prefill the WiFi password from the system keychain, click `No`. We will set this up manually.
 
-![WiFi keychain](./images/IMG_8679.png?raw=true)
+<br/>
+
+<div align="center">
+    <img src="./images/IMG_8679.png?raw=true" alt="WiFi keychain" width="500" />
+</div><br/>
 
 When it asks if you still want to continue, click `YES`. It may take a few minutes to flash the MicroSD, and you may be prompted to authenticate your computer accessing the MicroSD card.
 
@@ -131,27 +173,25 @@ The SD card should be called `bootfs`, and navigating to it with a file explorer
 
 Create a new file there called `wpa_supplicant.conf` using your preferred text editor. Open the file and paste in the template below:
 
-```
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+<pre><code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
-country=<YOUR COUNTRY CODE>
+country=&lt;YOUR COUNTRY CODE&gt;
 
 network={
-    ssid="<YOUR 1ST NETWORK NAME>"
-    psk="<YOUR 1ST NETWORK PASSWORD>"
+    ssid="&lt;YOUR 1ST NETWORK NAME&gt;"
+    psk="&lt;YOUR 1ST NETWORK PASSWORD&gt;"
     key_mgmt=WPA-PSK
-    id_str="<YOUR 1ST NETWORK ID>"
-    priority=<YOUR 1ST NETWORK PRIORITY>
+    id_str="&lt;YOUR 1ST NETWORK ID&gt;"
+    priority=&lt;YOUR 1ST NETWORK PRIORITY&gt;
 }
 
 network={
-    ssid="<YOUR 2ND NETWORK NAME>"
-    psk="<YOUR 2ND NETWORK PASSWORD>"
+    ssid="&lt;YOUR 2ND NETWORK NAME&gt;"
+    psk="&lt;YOUR 2ND NETWORK PASSWORD&gt;"
     key_mgmt=WPA-PSK
-    id_str="<YOUR 2ND NETWORK ID>"
-    priority=<YOUR 2ND NETWORK PRIORITY>
-}
-```
+    id_str="&lt;YOUR 2ND NETWORK ID&gt;"
+    priority=&lt;YOUR 2ND NETWORK PRIORITY&gt;
+}</code></pre>
 
 Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`).
 
