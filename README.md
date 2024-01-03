@@ -1,20 +1,22 @@
-# raspi-play
-Build a low-profile AirPlay 2 audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.
+<div align="center"><h1>raspi-play</h1></div>
+<div align="center">Build a low-profile <b>AirPlay 2</b> audio receiver, powered by Raspberry Pi! This is a cheap and easy project to wirelessly connect an old speaker system to your Apple devices, such as an Apple HomePod.</div><br/>
 
 ![front of device (audio and SD ports)](./images/IMG_8580.jpeg?raw=true)
 ![back of device (power and data ports)](./images/IMG_8579.jpeg?raw=true)
 
-### Note
-This tutorial assumes you have a Unix-like terminal for setting up the Raspberry Pi
+<div align="center"><h2>Note</h2></div>
+<div align="center"><i>This tutorial assumes you have a Unix-like terminal for setting up the Raspberry Pi</i></div>
 
-## Materials
+<div align="center"><h2>Materials</h2></div>
+
 - Raspberry Pi Zero 2 W - [Amazon](https://a.co/d/fDa0be4) | [Adafruit](https://www.adafruit.com/product/5291)
 - I2S PCM5102A DAC Decoder - [Amazon](https://a.co/d/4PBEBoA) | [Ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=QCCAN+Interface+I2S+PCM5102A+DAC+Decoder+GY-PCM5102+I2S+Player+Module+pHAT+Format+Board+Digital+PCM5102+Audio+Board+for+Raspberry+Pi&_sacat=0)
 - MicroSD Card (8GB+) - [Amazon](https://a.co/d/fdQJwdG) | [Western Digital](www.westerndigital.com/products/memory-cards/sandisk-ultra-uhs-i-microsd)
 - USB or SD card adapter for the MicroSD card if your computer does not have a MicroSD slot (your MicroSD card may come with one, read its description) - Easily found on Amazon
 - 3D printed case (use the case and cover STL files in the repository [coming soon])
 
-## Tools
+<div align="center"><h2>Tools</h2></div>
+
 - 3D Printer
 - Soldering Iron
 - Solder (preferably rosin core, lead-free)
@@ -23,11 +25,15 @@ This tutorial assumes you have a Unix-like terminal for setting up the Raspberry
 - Hot glue & glue gun
 - Metal file (or something else to shave down the HDMI port's overhang)
 
-## Instructions
+<div align="center"><h2>Instructions</h2></div>
 
-### 1. Gather the parts specified
+<br/><br/>
 
-### 2. Prepare the Pi to fit into the 3D-printed case
+<div align="center"><h3>- 1 -<br/>Gather the parts specified</h3></div
+
+<br/><br/>
+
+<div align="center"><h3>- 2 -<br/>Prepare the Pi to fit into the 3D-printed case</h3></div>
 
 Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi.
 
@@ -36,7 +42,9 @@ File away the metal on the HDMI port that overhangs the edge of the PCB board (n
 ![Pi preparation1](./images/IMG_8657.jpeg?raw=true)
 ![Pi preparation2](./images/IMG_8658.jpeg?raw=true)
 
-### 3. Solder jumper wires to the DAC decoder
+<br/><br/>
+
+<div align="center"><h3>- 3 -<br/>Solder jumper wires to the DAC decoder</h3></div>
 
 On the short side of the board, the pads `BCK`, `DIN`, `LCK/LRCK`, `GND`, and `VIN` need to have jumper wires soldered to them. Do NOT solder a wire to `SCK`.
 
@@ -44,11 +52,14 @@ Apply a small bead of solder to jump the two little pads on the front side of th
 
 ![DAC connections](./images/IMG_8656.jpeg?raw=true)
 
-### 4. Solder the jumper wires from the DAC to the Pi
+<br/><br/>
+
+<div align="center"><h3>- 4 -<br/>Solder the jumper wires from the DAC to the Pi</h3></div>
 
 Make sure the wires go into the front component side of the Pi, otherwise the Pi will not fit into the case properly. Please use the following guide:
 
-**Connection guide**
+<div align="center"><h4>Connection guide</h4></div>
+
 ```
 DAC BOARD   > Raspberry Pi Zero 2 W connector
 -----------------------------------------------
@@ -59,7 +70,8 @@ LCK/LRCK    > PIN 35    (GPIO19)
 GND         > PIN 6     (GND) Ground
 VIN         > PIN 2     (5V)
 ```
-**GPIO labels**
+
+<div align="center"><h4>GPIO labels</h4></div>
 
 ![GPIO guide](./images/IMG_8659.jpeg?raw=true)
 
@@ -67,7 +79,11 @@ This is how mine looked after this step:
 
 ![Pi connections](./images/IMG_8662.jpeg?raw=true)
 
-### 5. Flash the SD card
+<br/><br/>
+
+<div align="center"><h3>- 5 -<br/>Flash the SD card</h3></div>
+
+<div align="center"><i>Before permanently hot gluing the Pi and DAC into the 3D printed case, it is a good idea to make sure it all works, in case any fixes need to be made.</i></div><br/>
 
 On your computer, plug the MicroSD card into your MicroSD reader slot or adapter.
 
@@ -107,9 +123,11 @@ When the program is finished flashing the card, you can close it.
 
 Unplug the MicroSD card from your computer and plug it back in.
 
-### 6. Configure the network settings
+<br/><br/>
 
-Navigate to the root directory of the SD card's boot partition, `bootfs`.
+<div align="center"><h3>- 6 -<br/>Configure the network settings</h3></div>
+
+The SD card should be called `bootfs`, and navigating to it with a file explorer will reveal your Pi's boot directory.
 
 Create a new file there called `wpa_supplicant.conf` using your preferred text editor. Open the file and paste in the template below:
 
@@ -135,7 +153,7 @@ network={
 }
 ```
 
-Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`)
+Fill in your personalized preferences for each WiFi network you wish to add (anything with angular brackets `<...>`).
 
 - `country`: the two-letter country code (i.e. `country=US`, `country=AU`, etc.)
 - `ssid`: the case-sensitive name of the WiFi network (surrounded by double quotes)
@@ -143,18 +161,31 @@ Fill in your personalized preferences for each WiFi network you wish to add (any
 - `id_str`: a unique label to distinguish from other networks, could be anything (surrounded by double quotes)
 - `priority`: a unique number to determine what order WiFi networks should connect in (integer, no quotes)
 
-This configuration is for two WiFi networks, but a different number of networks can be configured by adding or removing `network={...}` listings
+This configuration is for two WiFi networks, but a different number of networks can be configured by adding or removing `network={...}` listings.
 
-Save and close `wpa_supplicant.conf`
+Save and close `wpa_supplicant.conf`.
 
-Create another file called `ssh` with no file extension
+<br/>
 
-In a Unix-like terminal, you can do this with the following command
+<div align="center"><h4>Useful Network Settings Info</h4></div>
 
-```sh
-touch ssh
-```
+Once the Pi boots for the first time, the `wpa_supplicant.conf` file will be digested by the operating system, and it will be deleted
 
+Don't worry! These network settings are not permanent! Here are a few ways to change them later down the line...
+
+- **Running the `wpa_cli` command with root privileges in the Pi's terminal** (interactive way to adjust existing settings, i.e. add a new network, or change a password). Here are a few useful commands to run after opening interactive mode with `sudo wpa_cli`:
+    - `list_networks` gives you networks with their ID numbers (useful in other commands)
+    - `get_network <network_number> <variable_name>` gets the value of a variable from a specific network (i.e. `get_network 0 ssid`)
+    - `set_network <network_id> <variable_name> <value>` sets the value of a variable of a specific network (i.e. `set_network 0 psk "S1lly_p455c0d3"`)
+- **Creating a new `wpa_supplicant.conf` file in the boot directory** (overwrites the existing network settings). This is useful if you cannot SSH into the Pi for various reasons.
+
+<br/><br/>
+
+<div align="center"><h3>- 7 -<br/>Boot up the Pi</h3></div>
+
+Plug the MicroUSB power cable into the outermost MicroUSB port. Two lights should turn on, a green LED on the Pi, and a red LED on the DAC. It will take several minutes for the Pi to configure itself on the first boot, so be patient.
+
+<div align="center"><i>A good way to tell if the Pi is finished booting is if the green Pi LED is steady</i></div><br/>
 
 Verify that the Pi is connected to your network with the following command, assuming you are using the default hostname:
 ```sh
