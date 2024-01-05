@@ -38,7 +38,7 @@ When 3D printing the case, I recommend a small layer height as opposed to a larg
 
 <div align="center"><h3>- 2 -<br/>Prepare the Pi to fit into the 3D-printed case</h3></div>
 
-Discard the black piece of plastic covering the ribbon cable connector on the short edge of the Pi.
+Discard the black piece of plastic covering the flex cable connector on the short edge of the Pi.
 
 File away the metal on the HDMI port that overhangs the edge of the PCB board (notice in the second image how the HDMI port cannot be seen from underneath).
 
@@ -254,6 +254,6 @@ Note: Whenever a command starts with a `#` symbol instead of a `$`, it means to 
 
 [to be continued]
 
-## Resources
+<div align="center"><h2>Resources</h2></div>
 - Code to run AirPlay server: [Shairport Sync](https://github.com/mikebrady/shairport-sync)
 - DAC jumper wire connections: [Kamran Sethi](https://raspberrypi.stackexchange.com/a/76264)
