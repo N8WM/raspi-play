@@ -14,7 +14,7 @@
 - I2S PCM5102A DAC Decoder - [Amazon](https://a.co/d/4PBEBoA) | [Ebay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=QCCAN+Interface+I2S+PCM5102A+DAC+Decoder+GY-PCM5102+I2S+Player+Module+pHAT+Format+Board+Digital+PCM5102+Audio+Board+for+Raspberry+Pi&_sacat=0)
 - MicroSD Card (8GB+) - [Amazon](https://a.co/d/fdQJwdG) | [Western Digital](www.westerndigital.com/products/memory-cards/sandisk-ultra-uhs-i-microsd)
 - USB or SD card adapter for the MicroSD card if your computer does not have a MicroSD slot (your MicroSD card may come with one, read its description) - Easily found on Amazon
-- 3D printed case (use the case and cover STL files in the repository [coming soon])
+- 3D printed case (use the [case](./case.stl) and [cover](./cover.stl) STL files in the repository)
 
 <div align="center"><h2>Tools</h2></div>
 
